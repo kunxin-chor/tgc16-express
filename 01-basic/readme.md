@@ -25,3 +25,21 @@
     ```
     yarn install
     ```
+
+4. Install `nodemon` (node monitor) so that we don't have to
+   keep restarting server
+
+   ```
+   npm install -g nodemon
+   ```
+
+   Once we have installed, we can run index.js just by yping:
+
+   ```
+   nodemon
+   ```
+
+   And each time any file changed in the directory, the
+   server will restart
+
+   
