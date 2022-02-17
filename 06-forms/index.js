@@ -124,6 +124,12 @@ app.post('/fruits', function(req,res){
 
 })
 
+app.get('/foobar', function(req,res){
+    res.render('foobar',{
+        'numbers': 100
+    })
+})
+
 // LISTEN
 app.listen(3000, function(){
     console.log("Server has started")
