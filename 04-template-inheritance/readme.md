@@ -4,3 +4,5 @@
     ```
     yarn add wax-on
     ```
+
+2. 

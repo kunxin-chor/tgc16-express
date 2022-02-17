@@ -8,6 +8,11 @@ const hbs = require('hbs');
 // a 'view engine' allows us to render HTML from template files
 app.set('view engine', 'hbs');
 
+// express.static tells express where to find the static files
+// the argument is the name of the directory
+app.use(express.static('public'))
+
+// ROUTES
 app.get('/', function(req,res){
     res.render('index.hbs');
 })
