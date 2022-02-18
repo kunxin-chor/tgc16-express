@@ -1,0 +1,20 @@
+{{#extends 'base'}}
+
+{{#block "content"}}
+<h1>Movies</h1>
+<a href="/movies/create" class="btn btn-success">Add New</a>
+<div class="d-flex flex-wrap">
+{{#each movies}}
+<div class="card m-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{this.title}}</h5>
+    <p class="card-text">{{this.plot}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{{/each}}
+</div>
+
+{{/block}}
+
+{{/extends}}
