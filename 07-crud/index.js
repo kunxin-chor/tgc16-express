@@ -84,7 +84,24 @@ app.post('/sightings/:sighting_id/update', async function(req,res){
         'datetime': req.body.datetime
     }
     let sightingId = req.params.sighting_id;
+    // we use axios.put for updating because most of the time
+    // APIs assume that we are CHANGING ALL THE FIELDS
     await axios.put(BASE_API_URL + '/sighting/' + sightingId, payload);
+    res.redirect('/');
+})
+
+app.get('/sightings/:sighting_id/delete', async function(req,res){
+    let response = await axios.get(BASE_API_URL + '/sighting/' + req.params.sighting_id);
+    let sighting = response.data;
+
+    res.render('delete-food', {
+        // 'sighting': sighting
+        sighting
+    })
+})
+
+app.post('/sightings/:sighting_id/delete', async function(req,res){
+    let response = await axios.delete(BASE_API_URL + '/sighting/' + req.params.sighting_id);
     res.redirect('/');
 })
 
