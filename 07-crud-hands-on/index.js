@@ -37,9 +37,42 @@ app.post('/movies/create', async function(req,res){
     res.redirect('/')
 })
 
+app.get('/movie/:movie_id/update', async function(req,res){
+    let movieId = req.params.movie_id;
+    let response = await axios.get(BASE_API_URL + '/movie/' + movieId );
+    res.render('update_movie', {
+        'movie':response.data
+    })
+})
+
+app.post('/movie/:movie_id/update', async function(req,res){
+    let movieId = req.params.movie_id;
+    let payload = {
+        'title': req.body.title,
+        'plot': req.body.plot
+    }
+    await axios.patch(BASE_API_URL + "/movie/" + movieId, payload);
+    res.redirect('/')
+})
+
+app.get('/movie/:movieId/delete', async function(req,res){
+    let response = await axios.get(BASE_API_URL + '/movie/' + req.params.movieId);
+    res.render('delete_movie',{
+        'movie': response.data
+    })
+})
+
+app.post('/movie/:movieId/delete', async function(req,res){
+    console.log(req.body);
+    let movieId = req.params.movieId;
+    await axios.delete(BASE_API_URL + '/movie/' + movieId);
+    res.redirect('/')
+})
+
 // LISTEN
 // start the server at port 3000
 // "listen" for requests at port 3000
 app.listen(3000, function(){
     console.log("Server has started")
 })
+

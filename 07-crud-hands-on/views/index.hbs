@@ -9,7 +9,8 @@
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text">{{this.plot}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="/movie/{{this.id}}/update" class="btn btn-primary">Update</a>
+    <a href="/movie/{{this.id}}/delete" class="btn btn-danger">Delete</a>
   </div>
 </div>
 {{/each}}
